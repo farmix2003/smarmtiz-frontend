@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import EditPrices from "./EditPrices";
+import React from "react";
 
-const HomeItems = ({ prices, handleDeleteCourse, handleEditCourse }) => {
-  const [isEditOpen, setIsEditOpen] = useState(false);
+const HomeItems = ({ prices, handleDeleteCourse }) => {
   return (
     <>
       <table className="w-full border-white border-2">

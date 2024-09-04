@@ -128,4 +128,4 @@ const findById = (id) => {
     }
 }
 
-export { loginReq, getPrices, addNewCourse, updateCourseDetails, deleteCourse, findById };
+export { loginReq, getPrices, addNewCourse, deleteCourse };

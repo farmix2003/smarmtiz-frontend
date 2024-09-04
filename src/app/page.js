@@ -1,14 +1,13 @@
 "use client";
 import HomeItems from "@/components/HomeItems";
 import { deleteCourse, getPrices } from "@/service/service";
-import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const HomePage = () => {
   const [prices, setPrices] = useState([]);
   const [msg, setMsg] = useState("");
   const [isDeleted, setIdDeleted] = useState(false);
-  const router = useRouter()
+
   useEffect(() => {
     const getAllPrices = async () => {
       const res = await getPrices();
@@ -30,9 +29,6 @@ const HomePage = () => {
       console.error("Error deleting course:", error);
     }
   }
-  const handleEditCourse = (id) => {
-    router.push(`/edit/${id}`)
-  }
 
   return (
     <div className="m-3">
@@ -46,7 +42,6 @@ const HomePage = () => {
       {prices.length > 0 ? (
         <HomeItems prices={prices}
           handleDeleteCourse={handleDeleteCourse}
-          handleEditCourse={handleEditCourse}
         />
       ) : (
         <div>No prices available</div>
