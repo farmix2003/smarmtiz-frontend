@@ -26,10 +26,10 @@ const HomeItems = ({ prices, handleDeleteCourse }) => {
                 {price.courseType}
               </td>
               <td className="border-x-2 border-white px-2">
-                {price.coursePrice} so'm
+                {price.coursePrice}ming so'm
               </td>
               <td className="border-x-2 border-white px-2">
-                {price.courseTime}
+                {price.courseTime} soat
               </td>
               <td className="flex items-center justify-evenly">
                 <button onClick={() => handleDeleteCourse(price._id)}>
