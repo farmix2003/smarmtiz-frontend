@@ -34,7 +34,7 @@ const HomePage = () => {
     <div className="m-3">
       {
         isDeleted &&
-        <div className="bg-green-500 absolute ml-[80%] text-white p-2 rounded-md text-center">
+        <div className="bg-green-500 absolute ml-[10%] md:ml-[80%] text-white p-2 rounded-md text-center">
           {msg}
         </div>
       }
