@@ -35,7 +35,7 @@ const AdminPanel = () => {
   return (
     <form
       onSubmit={handleAddNewCourse}
-      className="bg-gray-500/40 rounded-md p-4 w-[250px] flex flex-col justify-center mt-10"
+      className="bg-gray-500/40 rounded-md p-4 w-[250px] flex flex-col justify-center mt-10 mx-auto"
     >
       <InputForm
         type={"text"}
