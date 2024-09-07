@@ -83,11 +83,13 @@ const EditPrices = ({ courseId, onClose }) => {
         value={imageLink}
         change={setImageLink}
       />
-      <InputForm
-        type={"textarea"}
-        name={"Description: "}
+      <label htmlFor="">Description: </label>
+      <textarea
+        className="border-none outline-none text-black"
         value={desc}
-        change={setDesc}
+        required
+        rows={5}
+        onChange={(e) => setDesc(e.target.value)}
       />
       <div className="flex gap-2">
         <button
