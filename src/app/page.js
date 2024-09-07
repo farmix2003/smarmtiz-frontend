@@ -1,6 +1,6 @@
 "use client";
 import HomeItems from "@/components/HomeItems";
-import { deleteCourse, getPrices } from "@/service/service";
+import { deleteCourse, findById, getPrices } from "@/service/service";
 import React, { useEffect, useState } from "react";
 
 const HomePage = () => {
@@ -43,6 +43,7 @@ const HomePage = () => {
         <HomeItems prices={prices}
           handleDeleteCourse={handleDeleteCourse}
         />
+
       ) : (
         <div>No prices available</div>
       )}

@@ -45,7 +45,7 @@ const getPrices = async () => {
         }
     }
 }
-const addNewCourse = async (courseName, coursePrice, courseTime, courseType, imageLink) => {
+const addNewCourse = async (courseName, coursePrice, courseTime, courseType, imageLink, desc) => {
     try {
         const res = await axios.post('/prices', {
             courseName,
@@ -53,6 +53,7 @@ const addNewCourse = async (courseName, coursePrice, courseTime, courseType, ima
             courseTime,
             courseType,
             image: imageLink,
+            desc
         });
         return res.data;
     } catch (error) {
@@ -71,22 +72,18 @@ const addNewCourse = async (courseName, coursePrice, courseTime, courseType, ima
 };
 
 const updateCourseDetails = async (id,
-    updatedCourseName,
-    updatedCoursePrice,
-    updatedCourseTime,
-    updatedCourseImage,
-    updatedCourseType) => {
+    updatedCourseDetail) => {
     try {
         const res = await axios.put(`/prices/${id}`, {
-            courseName: updatedCourseName,
-            coursePrice: updatedCoursePrice,
-            courseTime: updatedCourseTime,
-            courseType: updatedCourseType,
-            image: updatedCourseImage,
+            courseName: updatedCourseDetail.courseName,
+            coursePrice: updatedCourseDetail.coursePrice,
+            courseTime: updatedCourseDetail.courseTime,
+            courseType: updatedCourseDetail.courseType,
+            image: updatedCourseDetail.imageLink,
+            desc: updatedCourseDetail.desc
         });
         return res.data;
     } catch (error) {
-        // Improved error handling for better debugging
         if (error.response) {
             console.error('Backend returned an error:', error.response.data);
             throw new Error(`Failed to update course: ${error.response.data.message || 'Unknown error'}`);
@@ -118,14 +115,14 @@ const deleteCourse = async (id) => {
         }
     }
 }
-const findById = (id) => {
+const findById = async (id) => {
     try {
         const response = axios.get(`/prices/${id}`);
-        return response.data;
+        return (await response).data;
     } catch (error) {
         console.error('Failed to find course:', error.message);
         throw new Error('Failed to find course');
     }
 }
 
-export { loginReq, getPrices, addNewCourse, deleteCourse };
+export { loginReq, getPrices, addNewCourse, deleteCourse, findById, updateCourseDetails };

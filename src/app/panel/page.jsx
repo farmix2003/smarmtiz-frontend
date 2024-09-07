@@ -9,6 +9,7 @@ const AdminPanel = () => {
   const [courseType, setCourseType] = useState("");
   const [courseTime, setCourseTime] = useState("");
   const [imageLink, setImageLink] = useState("");
+  const [desc, setDesc] = useState("");
   const [msg, setMsg] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const handleAddNewCourse = async (e) => {
@@ -19,7 +20,8 @@ const AdminPanel = () => {
         coursePrice,
         courseTime,
         courseType,
-        imageLink
+        imageLink,
+        desc
       );
       setIsSuccess(true);
       setMsg("Kurs muvvafaqiyatli qo'shildi");
@@ -33,6 +35,7 @@ const AdminPanel = () => {
       setCourseType("");
       setCourseTime("");
       setImageLink("");
+      setDesc("");
     } catch (error) {
       console.error("Error adding course:", error.message);
       // Optionally display the error to the user
@@ -64,8 +67,8 @@ const AdminPanel = () => {
         />
         <InputForm
           type={"text"}
-          name={"Kurs turi: "}
-          value={courseType}
+          name={"Kurs turi: " || ""}
+          value={courseType || ""}
           change={setCourseType}
         />
         <InputForm
@@ -80,6 +83,12 @@ const AdminPanel = () => {
           name={"Rasm linki: "}
           value={imageLink}
           change={setImageLink}
+        />
+        <InputForm
+          type={"textarea"}
+          name={"Description:"}
+          value={desc}
+          change={setDesc}
         />
         <button className="mt-3 p-2 bg-slate-600/30 rounded-md">
           Qo'shish
