@@ -84,11 +84,11 @@ const AdminPanel = () => {
           value={imageLink}
           change={setImageLink}
         />
-        <InputForm
-          type={"textarea"}
-          name={"Description:"}
+        <label htmlFor="">Description: </label>
+        <textarea
+          className="border-none outline-none text-black"
           value={desc}
-          change={setDesc}
+          onChange={(e) => setDesc(e.target.value)}
         />
         <button className="mt-3 p-2 bg-slate-600/30 rounded-md">
           Qo'shish
